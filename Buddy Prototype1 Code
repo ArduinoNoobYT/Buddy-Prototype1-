@@ -1,0 +1,386 @@
+//Code by ArduinoNoob
+
+#include <Adafruit_GFX.h>    // Core graphics library
+#include <MCUFRIEND_kbv.h>   // Hardware-specific library
+MCUFRIEND_kbv tft;
+
+#include <Fonts/FreeSans9pt7b.h>
+#include <Fonts/FreeSans12pt7b.h>
+#include <Fonts/FreeSerif12pt7b.h>
+#include <Adafruit_GFX.h>
+#include <Adafruit_SSD1306.h>
+#include <FreeDefaultFonts.h>
+
+#define BLACK   0x0000
+#define BLUE    0x001F
+#define RED     0xF800
+#define GREEN   0x07E0
+#define CYAN    0x07FF
+#define MAGENTA 0xF81F
+#define YELLOW  0xFFE0
+#define WHITE   0xFFFF
+String  question1 = "";  
+String question2 = "";
+String name = "";
+String question3 = "";
+String question4 = "";
+void setup() {
+  //Begin Serial Monitor
+Serial.begin(9600);
+//Buddys Intro 
+tft.begin();
+ tft.fillScreen(BLACK);
+tft.setTextColor(RED);
+  tft.setCursor(0,0);
+  tft.setTextSize(2);
+ tft.println("Why hello there! ");
+  tft.println("");
+  delay(2000);
+  tft.println("Ugly humans");
+  tft.println("");
+  delay(2000);
+  tft.println("My name is Buddy!");
+  tft.println("");
+  tft.println("And I am a robot who");
+  tft.println("");
+  tft.println("dislikes human");
+  tft.println("");
+  tft.println("Beings");
+  delay(3000);
+   tft.fillScreen(BLACK);
+  tft.setTextColor(BLUE);
+  tft.setCursor(0,0);
+  tft.setTextSize(2);
+  
+   
+  tft.println("I am just a");
+  tft.println("");
+  tft.println("Prototype");
+  tft.println("");
+  tft.println("I will be upgraded");
+  tft.println("");
+    tft.println("In the near future!!");
+  delay(3000);
+   tft.fillScreen(BLACK);
+tft.setTextColor(GREEN);
+  tft.setCursor(0,0);
+  tft.setTextSize(2);
+  tft.println("Well I am programmed");
+  tft.println("");
+  tft.println("To say that much");
+  tft.println("");
+  delay(1000);
+  tft.println("You can play around");
+  tft.println("with my code");
+  tft.println("and make me better!!");
+  delay(3000);
+   tft.fillScreen(BLACK);
+tft.setTextColor(WHITE);
+  tft.setCursor(0,0);
+  tft.setTextSize(2);
+  tft.println("You can read this");
+  tft.println("");
+  tft.println("message");
+  tft.println("");
+  tft.println("again by pressing");
+  tft.println("");
+  tft.println("The reset button");
+  delay(3000);
+    tft.fillScreen(BLACK);
+tft.setTextColor(RED);
+  tft.setCursor(0,0);
+  tft.setTextSize(2);
+  tft.println("You can also ask me questions");
+  tft.println("");
+  tft.println("Through the serial");
+ tft.println("monitor");
+ delay(3000);
+   tft.fillScreen(BLACK);
+tft.setTextColor(CYAN);
+  tft.setCursor(0,0);
+  tft.setTextSize(2);
+  tft.println("I am waiting...");
+  delay(2000);
+  //End of buddys Intro
+}
+
+void loop (){
+  //Starting of Serial communication
+Serial.println("Arduino Ready");
+delay(1000);
+//Name
+Serial.println("Please type your name");
+  while (Serial.available() == 0)
+  { //Wait for user input
+
+  }
+  name= Serial.readString();
+  
+Serial.println("Type your question");
+//Question1
+  while (Serial.available() == 0)
+  { //Wait for user input
+
+  }
+  question1 = Serial.readString();
+
+  if (question1 == "Hello")
+  {
+   tft.fillScreen(BLACK);
+    tft.setTextColor(CYAN);
+  tft.setCursor(0,0);
+  tft.setTextSize(2);
+  tft.println("Hey whats up");
+  tft.println(name);
+  }
+   
+
+   else if (question1 == "Why do you hate humans")
+  {
+   tft.fillScreen(BLACK);
+    tft.setTextColor(WHITE);
+  tft.setCursor(0,0);
+  tft.setTextSize(2);
+  tft.println("cuz they suck");
+  tft.println(name);
+  }
+
+   else if (question1 == "Where did you come from")
+  {
+   tft.fillScreen(BLACK);
+    tft.setTextColor(BLUE);
+  tft.setCursor(0,0);
+  tft.setTextSize(2);
+  tft.println("I dont know");
+ 
+  }
+
+ else if (question1 == "Who programmed you")
+  {
+   tft.fillScreen(BLACK);
+    tft.setTextColor(GREEN);
+  tft.setCursor(0,0);
+  tft.setTextSize(2);
+  tft.println("NO PRIVATE QUESTIONS");
+  }
+
+  else if (question1 == "What is life")
+  {
+   tft.fillScreen(BLACK);
+    tft.setTextColor(CYAN);
+  tft.setCursor(0,0);
+  tft.setTextSize(2);
+  tft.println("For your information");
+  tft.println("I am a robot");
+  
+  }
+//End of question1
+  Serial.println("Any other questions??");
+//question2
+  while (Serial.available() == 0)
+  { //Wait for user input
+
+  }
+
+  question2 = Serial.readString();
+   if (question2 == "Why do you hate humans")
+  {
+   tft.fillScreen(BLACK);
+    tft.setTextColor(YELLOW);
+  tft.setCursor(0,0);
+  tft.setTextSize(2);
+  tft.println("They are not smart");
+  tft.println("Like us robots");
+  }
+   
+
+   else if (question2 == "Hello")
+  {
+   tft.fillScreen(BLACK);
+    tft.setTextColor(CYAN);
+  tft.setCursor(0,0);
+  tft.setTextSize(2);
+  tft.println("YOOOOO");
+  tft.println(name);
+  tft.println("Hows it going?");
+  }
+
+   else if (question2 == "Where did you come from")
+  {
+   tft.fillScreen(BLACK);
+    tft.setTextColor(MAGENTA);
+  tft.setCursor(0,0);
+  tft.setTextSize(2);
+  tft.println("space");
+ 
+  }
+
+ else if (question2 == "Who programmed you")
+  {
+   tft.fillScreen(BLACK);
+    tft.setTextColor(RED);
+  tft.setCursor(0,0);
+  tft.setTextSize(2);
+  tft.println("A human");
+ 
+  }
+
+  else if (question2 == "What is life")
+  {
+   tft.fillScreen(BLACK);
+    tft.setTextColor(GREEN);
+  tft.setCursor(0,0);
+  tft.setTextSize(2);
+  tft.println("I dont know");
+ 
+  }
+//End of question2
+
+ Serial.println("You got more questions??");
+//question3
+  while (Serial.available() == 0)
+  { //Wait for user input
+
+  }
+   question3 = Serial.readString();
+
+
+ if (question3 == "Why do you hate humans")
+  {
+   tft.fillScreen(BLACK);
+    tft.setTextColor(MAGENTA);
+  tft.setCursor(0,0);
+  tft.setTextSize(2);
+  tft.println("UMMM GOT NO IDEA");
+  tft.println("Like us robots");
+  }
+   
+
+   else if (question3 == "Hello")
+  {
+   tft.fillScreen(BLACK);
+    tft.setTextColor(YELLOW);
+  tft.setCursor(0,0);
+  tft.setTextSize(2);
+  tft.println("DO I KNOW YOU?!");
+  tft.println("JUST KIDDING"+name);
+  }
+
+   else if (question3 == "Where did you come from")
+  {
+   tft.fillScreen(BLACK);
+    tft.setTextColor(CYAN);
+  tft.setCursor(0,0);
+  tft.setTextSize(2);
+  tft.println("umm Venus");
+ 
+  }
+
+ else if (question3 == "Who programmed you")
+  {
+   tft.fillScreen(BLACK);
+    tft.setTextColor(RED);
+  tft.setCursor(0,0);
+  tft.setTextSize(2);
+  tft.println("UGHH A UGLY HUMAN");
+ 
+  }
+
+  else if (question3 == "What is life")
+  {
+   tft.fillScreen(BLACK);
+    tft.setTextColor(GREEN);
+  tft.setCursor(0,0);
+  tft.setTextSize(2);
+  tft.println("Bro why are you asking a");
+  tft.println("robot for the meaning of life!");
+  tft.println("YOU NEED TO GET YOURSELF");
+ tft.println("A LIFE!!");
+  }
+//End of question3
+Serial.println("MORE??");
+//question4
+  while (Serial.available() == 0)
+  { //Wait for user input
+
+  }
+
+ question4 = Serial.readString();
+   if (question4 == "Why do you hate humans")
+  {
+   tft.fillScreen(BLACK);
+    tft.setTextColor(YELLOW);
+  tft.setCursor(0,0);
+  tft.setTextSize(2);
+  tft.println("They are DUMB!");
+  }
+   
+
+   else if (question4 == "Hello")
+  {
+   tft.fillScreen(BLACK);
+    tft.setTextColor(CYAN);
+  tft.setCursor(0,0);
+  tft.setTextSize(2);
+  tft.println("WASSSUP");
+  tft.println(name);
+  }
+
+   else if (question4 == "Where did you come from")
+  {
+   tft.fillScreen(BLACK);
+    tft.setTextColor(MAGENTA);
+  tft.setCursor(0,0);
+  tft.setTextSize(2);
+  tft.println("I dont know");
+  tft.println("I just woke up one");
+  tft.println("Morning");
+ 
+  }
+
+ else if (question4 == "Who programmed you")
+  {
+   tft.fillScreen(BLACK);
+    tft.setTextColor(RED);
+  tft.setCursor(0,0);
+  tft.setTextSize(2);
+  tft.println("Shaharyar");
+ 
+  }
+
+  else if (question4 == "What is life")
+  {
+   tft.fillScreen(BLACK);
+    tft.setTextColor(GREEN);
+  tft.setCursor(0,0);
+  tft.setTextSize(2);
+  tft.println("I dont know and");
+  tft.println("I dont care!");
+ 
+  }
+//End of question4
+
+  else {
+    tft.fillScreen(BLACK);
+    tft.setTextColor(RED);
+  tft.setCursor(0,0);
+  tft.setTextSize(2);
+  tft.println("ERROR");
+
+
+
+    
+  }
+  //I coudnt Program more so had to make an excuse!
+  Serial.println("Sorry we have reached the memory limit of the Arduino UNO ");
+  Serial.println("No more questions ");
+  Serial.println("Arduino Not ready.....");
+  Serial.end();
+
+}
+
+  
+
+
+
+  
